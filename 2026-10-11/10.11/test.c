@@ -14,7 +14,7 @@
 //	{
 //		if ((ret >> i) & 1 == 1)
 //		{
-//			pos++;
+//			pos=i;
 //			break;
 //		}
 //	}
@@ -62,49 +62,49 @@ int main()
 // printf 用文件开头已经包含的 <stdio.h>。
 // 这段代码已单独编译运行验证过，输出：5 6
 
-#if 0
 
-void find(const int arr[], int len, int* a, int* b)
-{
-	*a = 0;
-	*b = 0;
 
-	int xor_all = 0;
-	for (int i = 0; i < len; ++i)
-	{
-		xor_all ^= arr[i];
-	}
-	if (xor_all == 0)			// 全部成对，没有两个不同的单身狗
-	{
-		return;
-	}
-
-	int lowbit = xor_all & (-xor_all);	// 只保留最低位的 1，替代原来逐位找位置的循环
-
-	for (int i = 0; i < len; ++i)
-	{
-		if (arr[i] & lowbit)			// 按这一位分组，两个单身狗必然被分到不同组
-		{
-			*a ^= arr[i];
-		}
-		else
-		{
-			*b ^= arr[i];
-		}
-	}
-}
-
-int main(void)
-{
-	int arr[] = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 6 };
-	int len = (int)(sizeof(arr) / sizeof(arr[0]));
-
-	int a = 0;
-	int b = 0;
-	find(arr, len, &a, &b);
-
-	printf("%d %d\n", a, b);
-	return 0;
-}
-
-#endif
+//void find(const int arr[], int len, int* a, int* b)
+//{
+//	*a = 0;
+//	*b = 0;
+//
+//	int xor_all = 0;
+//	for (int i = 0; i < len; ++i)
+//	{
+//		xor_all ^= arr[i];
+//	}
+//	if (xor_all == 0)			// 全部成对，没有两个不同的单身狗
+//	{
+//		return;
+//	}
+//
+//	int lowbit = xor_all & (-xor_all);	// 只保留最低位的 1，替代原来逐位找位置的循环
+//
+//	for (int i = 0; i < len; ++i)
+//	{
+//		if (arr[i] & lowbit)			// 按这一位分组，两个单身狗必然被分到不同组
+//		{
+//			*a ^= arr[i];
+//		}
+//		else
+//		{
+//			*b ^= arr[i];
+//		}
+//	}
+//}
+//
+//int main(void)
+//{
+//	int arr[] = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 6 };
+//	int len = (int)(sizeof(arr) / sizeof(arr[0]));
+//
+//	int a = 0;
+//	int b = 0;
+//	find(arr, len, &a, &b);
+//
+//	printf("%d %d\n", a, b);
+//	return 0;
+//}
+//
+//#endif
